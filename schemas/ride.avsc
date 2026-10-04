@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Ride",
+  "namespace": "rides",
+  "doc": "Một sự kiện chuyến đi. Quy tắc tiến hoá: thêm field mới PHẢI có default (BACKWARD).",
+  "fields": [
+    {"name": "ride_id", "type": "string"},
+    {"name": "rider_id", "type": "string"},
+    {"name": "route", "type": "string"},
+    {"name": "fare", "type": {"type": "bytes", "logicalType": "decimal", "precision": 10, "scale": 2}},
+    {"name": "status", "type": "string", "doc": "requested | started | completed | cancelled (kiểm tra trong code để dễ tiến hoá)"},
+    {"name": "event_time", "type": {"type": "long", "logicalType": "timestamp-millis"}}
+  ]
+}
